@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+print("este programa nos dará datos sobre como evoluciona el contagio de un virus en una población con respecto al tiempo, mostrando la función de la gente contagiada y la susceptible/sana. Los parámetros del comportamiento del virus los elige el usuario")
+
 def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contacts_per_day, days):
     # Initial values
     gente_sana = poblacion - infectados_iniciales
