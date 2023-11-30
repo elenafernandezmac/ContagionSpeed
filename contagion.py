@@ -12,35 +12,37 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def sir_model(N, I0, beta, gamma, contacts_per_day, days):
+
+
+def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contacts_per_day, days):
     # Initial values
-    S = N - I0
-    I = I0
-    R = 0
+    gente_sana = poblacion - infectados_iniciales
+    infectados = infectados_iniciales
+    recuperandose = 0
     
     # Contact rate per day
     lambda_ = contacts_per_day / N
     
     # Lists to store results for plotting
-    susceptible_list = [S]
-    infected_list = [I]
+    susceptible_list = [gente_sana]
+    infected_list = [infectados]
     
     # SIR model simulation
     for day in range(days):
-        dS = -beta * S * I / N
-        dI = beta * S * I / N - gamma * I
+        dS = -rango_transimision * gente_sana * infectados / poblacion
+        dI = rango_transimision * gente_sana * infectados / poblacion - gamma * infectados
         dR = gamma * I
         
-        S += dS
-        I += dI
-        R += dR
+        gente_sana += dS
+        infectados += dI
+        recuperandose += dR
         
-        susceptible_list.append(S)
-        infected_list.append(I)
+        susceptible_list.append(gente_sana)
+        infected_list.append(infectados)
     
     # Calculate percentages
-    healthy_percentage = (S / N) * 100
-    infected_percentage = (I / N) * 100
+    healthy_percentage = (gente_sana / poblacion) * 100
+    infected_percentage = (infectados / poblacion) * 100
     
     return healthy_percentage, infected_percentage, susceptible_list, infected_list
 
