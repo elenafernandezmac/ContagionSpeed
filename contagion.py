@@ -40,7 +40,7 @@ def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contac
 
 # Parameters
 total_population = int(input("cuanta poblacion inicial tenemos?"))
-initial_infected_percentage = int(input("cuanto porcentaje inicial de gente infectada hay?"))  
+initial_infected_percentage = int(input("cuanto porcentaje inicial de gente infectada hay?"))
 transmission_rate = int(input("cuanto porcentaje de transmision tiene el virus?"))  
 recovery_rate = int(input("cuanto porcentaje de gente se recupera?"))  
 contacts_per_day = int(input("cuantos contactos por dia hay?"))
