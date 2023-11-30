@@ -31,7 +31,7 @@ def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contac
     for day in range(days):
         dS = -rango_transimision * gente_sana * infectados / poblacion
         dI = rango_transimision * gente_sana * infectados / poblacion - gamma * infectados
-        dR = gamma * I
+        dR = gamma * infectados
         
         gente_sana += dS
         infectados += dI
