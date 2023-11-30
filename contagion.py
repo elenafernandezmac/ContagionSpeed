@@ -21,7 +21,7 @@ def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contac
     recuperandose = 0
     
     # Contact rate per day
-    lambda_ = contacts_per_day / N
+    lambda_ = contacts_per_day / poblacion
     
     # Lists to store results for plotting
     susceptible_list = [gente_sana]
