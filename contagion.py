@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+print("Este programa mostrará la expansión del contagio de un virus respecto al tiempo que elijamos.")
+
 #modelo SIR (Susceptible-Infectado-Recuperado). divide a la población en: susceptibles, infectados y recuperados y como estos varian en el tiempo
 def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contacts_per_day, days):
     # Initial values
