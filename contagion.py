@@ -19,13 +19,13 @@ def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contac
     
     # SIR model simulation
     for day in range(days):
-        dS = -rango_transimision * gente_sana * infectados / poblacion
-        dI = rango_transimision * gente_sana * infectados / poblacion - gamma * infectados
-        dR = gamma * infectados
+        cambio_gente_sana = -rango_transimision * gente_sana * infectados / poblacion
+        cambio_infectados = rango_transimision * gente_sana * infectados / poblacion - gamma * infectados
+        cambio_recuperados = gamma * infectados
         
-        gente_sana += dS
-        infectados += dI
-        recuperandose += dR
+        gente_sana += cambio_gente_sana
+        infectados += cambio_infectados
+        recuperandose += cambio_recuperados
         
         susceptible_list.append(gente_sana)
         infected_list.append(infectados)
