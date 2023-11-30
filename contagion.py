@@ -29,7 +29,9 @@ def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contac
         gente_sana += cambio_sanos
         infectados += cambio_infectados
         recuperandose += cambio_recuperados
-        
+
+
+        #se añade a la funcion SIR
         susceptible_list.append(gente_sana)
         infected_list.append(infectados)
         
