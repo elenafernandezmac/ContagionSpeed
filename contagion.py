@@ -1,13 +1,3 @@
-#1-personas que mueren por hora
-#2-velocidad de contagio
-#3-cuanto se tardará en que muera toda la poblacion
-
-
-#PARÄMETROS
-#1-poblacion total
-#2-porcentaje inicial de gente contagiada
-#3-numero de interacciones entre personas por dia
-#4-duracion del virus(infinito)
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -47,12 +37,12 @@ def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contac
     return healthy_percentage, infected_percentage, susceptible_list, infected_list
 
 # Parameters
-total_population = 1000
-initial_infected_percentage = 1  # 1%
-transmission_rate = 0.15  # 15%
-recovery_rate = 1 / 10  # 10 days infectious period
-contacts_per_day = 10
-simulation_days = 30
+total_population = int(input("cuanta poblacion inicial tenemos?"))
+initial_infected_percentage = int(input("cuanto porcentaje inicial de gente infectada hay?"))  # 1%
+transmission_rate = int(input("cuanto porcentaje de transmision tiene el virus?"))  # 15%
+recovery_rate = int(input("cuanto porcentaje de gente se recupera?"))  # 10 days infectious period
+contacts_per_day = int(input("cuantos contactos por dia hay?"))
+simulation_days = int(input("cuantos dias dura la epidemia?"))
 
 # Run the SIR model
 healthy_percent, infected_percent, susceptible, infected = sir_model(
