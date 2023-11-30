@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+#esta funcion define el modelo SIR (Susceptible-Infectado-Recuperado). Este modelo divide a la población en tres categorías: susceptibles, infectados y recuperados y calcula como varian estos grupos en el tiempo
 def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contacts_per_day, days):
     # Initial values
     gente_sana = poblacion - infectados_iniciales
@@ -20,13 +22,13 @@ def sir_model(poblacion, infectados_iniciales, rango_transimision, gamma, contac
     
     # SIR model simulation
     for day in range(days):
-        dS = -rango_transimision * gente_sana * infectados / poblacion
-        dI = rango_transimision * gente_sana * infectados / poblacion - gamma * infectados
-        dR = gamma * infectados
+        cambio_sanos  = -rango_transimision * gente_sana * infectados / poblacion
+        cambio_infectados  = rango_transimision * gente_sana * infectados / poblacion - gamma * infectados
+        cambio_recuperados = gamma * infectados
         
-        gente_sana += dS
-        infectados += dI
-        recuperandose += dR
+        gente_sana += cambio_sanos
+        infectados += cambio_infectados
+        recuperandose += cambio_recuperados
         
         susceptible_list.append(gente_sana)
         infected_list.append(infectados)
